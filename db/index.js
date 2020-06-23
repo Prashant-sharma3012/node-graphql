@@ -1,6 +1,6 @@
 const env = process.env.NODE_ENV || "development";
 const config = require("../config/config.json")[env];
-const MongoClient = require("mongodb").MongoClient;
+const mongoose = require("mongoose");
 const logger = require("../utils/logger");
 
 // Connection URL
@@ -12,19 +12,15 @@ let db = {};
 
 // Use connect method to connect to the server
 const connect = async () => {
-  logger.info("Connecting to DB");
-
-  try {
-    client = await MongoClient.connect(dbUrl);
-
-    logger.info("Connected to DB");
-    db = client.db(dbName);
-    
-    return Promise.resolve(true);
-  } catch (err) {
+  try{
+    logger.info("Connecting to DB")
+    await mongoose.connect(`${dbUrl}/${dbName}`, {useNewUrlParser: true, useUnifiedTopology: true})
+    logger.info("Connected to DB")
+    return Promise.resolve('')
+  }catch(err){
     logger.error(err);
-    return Promise.reject(false);
-  }
+    return Promise.reject('')
+  }  
 };
 
 module.exports = { instance: db, connect };
