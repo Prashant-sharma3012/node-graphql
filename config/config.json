@@ -1,10 +1,10 @@
 {
   "local": {
     "database": "graphQLApp",
-    "dbUrl": ""
+    "dbUrl": "mongodb://localhost:27017"
   },
   "development": {
     "database": "graphQLApp",
-    "dbUrl": ""
+    "dbUrl": "mongodb://localhost:27017"
   }
 }
