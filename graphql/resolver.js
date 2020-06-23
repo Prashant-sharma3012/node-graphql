@@ -2,6 +2,12 @@ const userStore = require("../store/user");
 const bcrypt = require("bcrypt");
 
 module.exports = {
+  hello: () => {
+    return {
+      text: "Hello",
+      views: 140
+    }
+  },
   createUser: async (args, req) => {
     const { email, name, password } = args.userInput;
 
