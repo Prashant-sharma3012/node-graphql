@@ -1,5 +1,5 @@
 {
-  "name": "graphql",
+  "name": "node-graphql",
   "version": "1.0.0",
   "description": "Implement GraphQL API using Node",
   "main": "index.js",
