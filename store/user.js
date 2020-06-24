@@ -1,11 +1,11 @@
-const user = require("../models/User");
+const User = require("../models/User");
 
 const create = async (user) => {
-  return user.create(user);
+  return User.create(user);
 };
 
 const findByEmail = async (email) => {
-  return user.findOne({ email });
+  return User.findOne({ email });
 };
 
 module.exports = {

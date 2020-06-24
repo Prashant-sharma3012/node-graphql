@@ -17,7 +17,7 @@ module.exports = {
       throw err;
     }
 
-    const hash = bcrypt.hash(password, 12);
+    const hash = await bcrypt.hash(password, 12);
     const user = await userStore.create({
       email,
       name,
@@ -26,4 +26,9 @@ module.exports = {
 
     return { ...user._doc, _id: user._id.toString() };
   },
+  getUser: async (args, req) => {
+    let email = args.email;
+    const existingUser = await userStore.findByEmail(email);
+    return { ...existingUser._doc, _id: existingUser._id.toString() };
+  }
 };

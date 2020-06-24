@@ -36,7 +36,7 @@ module.exports = buildSchema(`
   }
   
   type RootQuery {
-    hello: Testdata!
+    getUser(email: String!): User!
   }
   
   schema {
